@@ -46,6 +46,16 @@ const routes = [{
     path: "/login",
     name: "Login",
     component: () => import("../views/Login.vue")
+  },
+  {
+    path: "/notfind",
+    name: "NotFind",
+    component: () => import("../views/404.vue")
+  },
+  {
+    path: "*",
+    redirect: "/notFind",
+    hidden: true
   }
 ];
 

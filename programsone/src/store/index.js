@@ -12,6 +12,10 @@ export default new Vuex.Store({
       state.isLogin = payload
     }
   },
-  actions: {},
+  actions: {
+    changeLogin(context, payload) {
+      context.commit("changeLogin", payload);
+    }
+  },
   modules: {}
 });

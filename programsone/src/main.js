@@ -8,17 +8,17 @@ import "@/util/vueScroll.js";
 
 
 //导航守卫
-// router.beforeEach((to,form,next)=>{
-//   if(to.path=='/login'){
-//     sessionStorage.removeItem("token");
-//   }
-//   let user = JSON.parse(sessionStorage.getItem("token"));
-//   if(!user&&to.path!='/login'){
-//     next({path:'/login'})
-//   }else{
-//     next();
-//   }
-// })
+router.beforeEach((to,form,next)=>{
+  if(to.path=='/login'){
+    sessionStorage.removeItem("token");
+  }
+  let user = JSON.parse(sessionStorage.getItem("token"));
+  if(!user&&to.path!='/login'){
+    next({path:'/login'})
+  }else{
+    next();
+  }
+})
 
 Vue.config.productionTip = false;
 

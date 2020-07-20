@@ -24,7 +24,7 @@
                             用户名<i class="el-icon-arrow-down el-icon--right"></i>
                         </span>
                         <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item >退出登录</el-dropdown-item>
+                            <el-dropdown-item @click.native="Logout">退出登录</el-dropdown-item>
                         </el-dropdown-menu>
                     </el-dropdown>
             </div>
@@ -49,7 +49,15 @@ export default {
   //监控data中的数据变化
   watch: {},
   //方法集合
-  methods: {},
+  methods: {
+      //退出登录
+      Logout() {
+          this.$store.dispatch("changeLogin", false);
+          this.$store.dispatch("changeUserInfo", null);
+          sessionStorage.clear();
+          this.$router.push({name: "Login"});
+      }
+  },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）

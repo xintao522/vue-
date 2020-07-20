@@ -7,7 +7,7 @@
       :visible.sync="drawer"
       :with-header="false"
       direction="ltr"
-      size="10%"
+      size="200"
     >
       <div class="toplogo">
         <img src="@/assets/logo.png" alt />

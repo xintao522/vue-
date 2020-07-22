@@ -5,4 +5,9 @@ import { post } from "@/util/http";
 
 let baseURL = "/video";
 
-export const Login = data => post(`${baseURL}/Login`, data);
+const Login = data => post(`${baseURL}/Login`, data);
+
+
+export default {
+    Login
+}

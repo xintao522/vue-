@@ -20,7 +20,7 @@
 </template>
 
 <script>
-// import { Login } from '@/api/api_1';// 导入我们的api接口
+import api from "@/api";
 export default {
   name: "Login",
   data() {
@@ -45,10 +45,14 @@ export default {
       Login() {
           // 调用api接口
           // let params = this.form;
-          // Login(params).then(res => {
-          //     // 获取数据成功后的其他操作
-          //     console.log(res);
+          // api.api1API.Login(params)
+          //   .then(res => {
+          //   // 获取数据成功后的其他操作
+          //   console.log(res);
           // })
+          //   .catch(error => {
+          //   console.log(error);
+          // });
           let a = Math.random()
           this.$store.dispatch("changeLogin", true);
           this.$store.dispatch("changeUserInfo", this.form);

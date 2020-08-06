@@ -59,7 +59,7 @@ export default {
           sessionStorage.setItem("token", JSON.stringify(a));
           let token = JSON.parse(sessionStorage.getItem("token"));
           if (token) {
-            this.$router.push({name: "Home"});
+            this.$router.push({name:"Equipment"})
           }
       }
   }

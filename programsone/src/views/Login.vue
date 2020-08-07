@@ -54,8 +54,9 @@ export default {
           //   console.log(error);
           // });
           let a = Math.random()
-          this.$store.dispatch("changeLogin", true);
-          this.$store.dispatch("changeUserInfo", this.form);
+          this.$store.commit("changeLogin", true);
+          this.$store.commit("changeAside", false);
+          this.$store.commit("changeUserInfo", this.form);
           sessionStorage.setItem("token", JSON.stringify(a));
           let token = JSON.parse(sessionStorage.getItem("token"));
           if (token) {

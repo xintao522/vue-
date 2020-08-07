@@ -52,8 +52,8 @@ export default {
   methods: {
       //退出登录
       Logout() {
-          this.$store.dispatch("changeLogin", false);
-          this.$store.dispatch("changeUserInfo", null);
+          this.$store.commit("changeLogin", false);
+          this.$store.commit("changeUserInfo", null);
           sessionStorage.clear();
           this.$router.push({name: "Login"});
       }

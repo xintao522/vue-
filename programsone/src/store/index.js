@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     isLogin: false,
+    isAside: false,
     userInfo: {}
   },
   mutations: {
@@ -14,15 +15,11 @@ export default new Vuex.Store({
     },
     changeUserInfo(state, payload) {
       state.userInfo = payload
-    }
-  },
-  actions: {
-    changeLogin(context, payload) {
-      context.commit("changeLogin", payload);
     },
-    changeUserInfo(context, payload) {
-      context.commit("changeUserInfo", payload);
+    changeAside(state, payload) {
+      state.isAside = payload
     }
   },
+  actions: {},
   modules: {}
 });

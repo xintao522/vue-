@@ -4,10 +4,10 @@
       <My-Header></My-Header>
     </el-header>
     <el-container>
-      <el-aside width="200px" :class="[isAside==true?'closeAside':'']">
+      <el-aside width="200px" :class="[isAside==true?'closeAside':'openAside']">
         <vue-scroll>
           <el-menu
-            default-active="1-1"
+            :default-active="activeIndex"
             class="el-menu-vertical-demo"
             @open="handleOpen"
             @close="handleClose"
@@ -24,14 +24,14 @@
                 <i class="el-icon-location"></i>
                 <span>导航二</span>
               </template>
-              <el-menu-item index="2-1" @click="MenuGo('Energy')">选项</el-menu-item>
+              <el-menu-item index="1-2" @click="MenuGo('Energy')">选项</el-menu-item>
             </el-submenu>
             <el-submenu index="3">
               <template slot="title">
                 <i class="el-icon-location"></i>
                 <span>导航三</span>
               </template>
-              <el-menu-item index="3-1" @click="MenuGo('Caveat')">选项</el-menu-item>
+              <el-menu-item index="1-3" @click="MenuGo('Caveat')">选项</el-menu-item>
             </el-submenu>
           </el-menu>
         </vue-scroll>
@@ -58,6 +58,7 @@ export default {
   data() {
     return {
       isAside: false,
+      activeIndex: this.$route.meta.activeIndex,
       imgsrc:"left.png"
     };
   },
@@ -78,7 +79,17 @@ export default {
         this.imgsrc = "right.png";
       }
       this.isAside = !this.isAside;
+      this.$store.commit("changeAside", this.isAside);
     }
+  },
+  created() {
+    console.log(this.$store.state.isAside);
+    if (this.$store.state.isAside===false) {
+      this.isAside = false;
+    } else if (this.$store.state.isAside===true){
+      this.isAside = true;
+    }
+    
   }
 };
 </script>
@@ -101,7 +112,7 @@ export default {
   height: 50px;
   left: 0;
   top: 50%;
-  // border: 1px solid red;
+  border-radius: 0 5px 5px 0;
   background-color: red;
   color: green;
   line-height: 45px;
@@ -113,7 +124,19 @@ export default {
     transform: translate(-35%, 25%);
   }
 }
+@keyframes closeMenu {
+  from{width: 200px;}
+  to{width: 0px;}
+}
 .closeAside {
-  width: 0 !important;
+  // width: 0 !important;
+  animation: closeMenu 0.35s forwards linear;
+}
+@keyframes openMenu {
+  from{width: 0px;}
+  to{width: 200px;}
+}
+.openAside {
+  animation: openMenu 0.35s forwards linear;
 }
 </style>

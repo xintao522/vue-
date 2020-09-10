@@ -20,7 +20,7 @@ const routes = [{
         name: "Equipment",
         component: () => import(/* webpackChunkName: "Equipment" */ "../views/Equipment.vue"), //webpackChunkName: "Equipment" 是魔法注释，打包单个文件名，没有则打包为一个文件
         meta: {
-          activeIndex: "1-1"
+          activeIndex: "1"
         }
       },
       {
@@ -28,7 +28,7 @@ const routes = [{
         name: "Energy",
         component: () => import(/* webpackChunkName: "Energy" */ "../views/Energy.vue"),
         meta: {
-          activeIndex: "1-2"
+          activeIndex: "2"
         }
       },
       {
@@ -36,7 +36,7 @@ const routes = [{
         name: "Facility",
         component: () => import(/* webpackChunkName: "Facility" */ "../views/Facility.vue"),
         meta: {
-          activeIndex: "1-3"
+          activeIndex: "3"
         }
       },
       {
@@ -44,7 +44,7 @@ const routes = [{
         name: "Caveat",
         component: () => import(/* webpackChunkName: "Caveat" */ "../views/Caveat.vue"),
         meta: {
-          activeIndex: "1-4"
+          activeIndex: "4"
         }
       },
       {
@@ -52,7 +52,7 @@ const routes = [{
         name: "Monitor",
         component: () => import(/* webpackChunkName: "Monitor" */ "../views/Monitor.vue"),
         meta: {
-          activeIndex: "1-5"
+          activeIndex: "5"
         }
       }
     ]

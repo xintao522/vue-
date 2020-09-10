@@ -8,16 +8,24 @@ import "@/util/vueScroll.js";
 
 
 //导航守卫
-router.beforeEach((to,form,next)=>{
-  if(to.path=='/login'){
-    sessionStorage.removeItem("token");
+router.beforeEach((to, from, next) => {
+  //登录验证
+  if (to.matched.some(m => m.meta.auth)) {
+      if (sessionStorage.isLogin && sessionStorage.isLogin === "100") {
+          next()
+      } else {
+          next({
+              path: '/login'
+          })
+      }
+  } else if (sessionStorage.isLogin && sessionStorage.isLogin === "100" && to.path === '/login') {
+      next({
+          path: '/'
+      })
+  } else {
+      next()
   }
-  let user = JSON.parse(sessionStorage.getItem("token"));
-  if(!user&&to.path!='/login'){
-    next({path:'/login'})
-  }else{
-    next();
-  }
+
 })
 
 Vue.config.productionTip = false;
